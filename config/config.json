@@ -1,0 +1,44 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "nodejs",
+    "host": "127.0.0.1",
+    "port": "4000",
+    "dialect": "postgres",
+    "pool": {
+      "max": 20,
+      "min": 0,
+      "acquire": 20000,
+      "idle": 10000
+    }
+  },
+  "test": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "tingvn",
+    "host": "127.0.0.1",
+    "port": "4000",
+    "dialect": "postgres",
+    "pool": {
+      "max": 20,
+      "min": 0,
+      "acquire": 20000,
+      "idle": 10000
+    }
+  },
+  "production": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "tingvn",
+    "host": "127.0.0.1",
+    "port": "4000",
+    "dialect": "postgres",
+    "pool": {
+      "max": 20,
+      "min": 0,
+      "acquire": 20000,
+      "idle": 10000
+    }
+  }
+}

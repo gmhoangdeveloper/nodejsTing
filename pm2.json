@@ -1,0 +1,8 @@
+{
+    "apps": [
+        {
+            "name": "api_ting",
+            "script": "npm run start:prod"
+        }
+    ]
+}
