@@ -1,10 +1,10 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "postgres",
+    "username": "admin",
+    "password": "admin",
     "database": "nodejs",
-    "host": "127.0.0.1",
-    "port": "4000",
+    "host": "54.82.8.130",
+    "port": "9078",
     "dialect": "postgres",
     "pool": {
       "max": 20,

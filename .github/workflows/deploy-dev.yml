@@ -1,0 +1,42 @@
+name: CICD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v3
+      - name: Login to Docker Hub
+        run: docker login -u gmhoang.developer@gmail.com -p Chayo@123
+      - name: Build Docker Image
+        run: docker build -t giangminhhoang99/nodejs .
+      - name: Publish image to docker hub
+        run: docker push giangminhhoang99/react-tnodejsing:latest
+
+  deploy:
+    needs: build
+    runs-on: [aws-ec2-v2]
+    steps:
+      - name: Pull image from docker hub
+        run: docker pull giangminhhoang99/nodejs:latest
+      - name: Delete Old Container
+        run: docker rm -f nodejsContainer
+      - name: Run docker container
+        run: docker run -d -p 8000:8000 --name nodejsContainer giangminhhoang99/nodejs
+      - name: send telegram message on push
+        uses: appleboy/telegram-action@master
+        with:
+          to: 5684948659
+          token: 7240678200:AAFafkrZ08nmfxlvk7wYH98UQRpfzFNHbVs
+          message: |
+            ${{ github.actor }} created commit:
+            Commit message: ${{ github.event.commits[0].message }}
+
+            Repository: ${{ github.repository }}
+
+            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
