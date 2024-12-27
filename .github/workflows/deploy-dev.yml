@@ -16,7 +16,7 @@ jobs:
       - name: Build Docker Image
         run: docker build -t giangminhhoang99/nodejs .
       - name: Publish image to docker hub
-        run: docker push giangminhhoang99/react-tnodejsing:latest
+        run: docker push giangminhhoang99/nodejs:latest
 
   deploy:
     needs: build
